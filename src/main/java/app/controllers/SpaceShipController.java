@@ -11,18 +11,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class SpaceShipController {
 
+    private final SpaceShipService spaceShipService;
     private SpaceShipRepo spaceShipRepo;
+
     private CrewRepo crewRepo;
 
+    public SpaceShipController(SpaceShipService spaceShipService) {
+        this.spaceShipService = spaceShipService;
+    }
+
     @Autowired
-    public SpaceShipController(SpaceShipRepo spaceShipRepo) {
+    public SpaceShipController(SpaceShipService spaceShipService, SpaceShipRepo spaceShipRepo) {
+        this.spaceShipService = spaceShipService;
         this.spaceShipRepo = spaceShipRepo;
     }
 
@@ -49,11 +57,17 @@ public class SpaceShipController {
         return "searchresult";
     }
 
-    @GetMapping(value = {"/showcrew/{id}"})
-    public String allCrewDates(@PathVariable Long registrationCode,Model model) {
-        List<Crew> crewList = crewRepo.findCrewBy();
+    /*@GetMapping(value = {"/spaceshipcrew/{id}"})
+    public String allCrewDates(@PathVariable ("id")Long id,Model model) {
+        List<Crew> crewList = new ArrayList<>();
+        crewList.addAll(spaceShipService.getAllCrewDates(id));
         model.addAttribute("allcrewdata", crewList);
+
+        Optional<SpaceShip> ship = spaceShipService.(id);
+        String name = ship.get().getName();
+        model.addAttribute("shipName", name);
+
         return "crewdata";
-    }
+    }*/
 
 }

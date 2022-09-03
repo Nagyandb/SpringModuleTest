@@ -9,5 +9,7 @@ import java.util.List;
 
 @Repository
 public interface SpaceShipRepo extends CrudRepository<SpaceShip, Long> {
+
     List<SpaceShip> findSpaceShipByisActiveTrue();
+
 }
