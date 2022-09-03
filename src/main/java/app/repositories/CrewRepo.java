@@ -1,13 +1,15 @@
 package app.repositories;
 
+import app.models.Crew;
 import app.models.SpaceShip;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
 @Repository
-public interface SpaceShipRepo extends CrudRepository<SpaceShip, Long> {
-    List<SpaceShip> findSpaceShipByisActiveTrue();
+public interface CrewRepo extends CrudRepository<Crew, Long> {
+
+    List<Crew> findCrewBy();
 }

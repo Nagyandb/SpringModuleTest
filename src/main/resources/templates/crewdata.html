@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A legénység</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<h1> Az űrhajók legénysége: </h1>
+
+<table>
+
+    <tr>
+        <th>Crew Name:</th>
+        <th>Crew Rank:</th>
+    </tr>
+
+    <tr data-th-each="datas:${allcrewdata}">
+        <td th:text="${datas.crewName}">Name</td>
+        <td th:text="${datas.crewRank}">Crew rank</td>
+    </tr>
+
+</table>
+
+</body>
+
+</html>

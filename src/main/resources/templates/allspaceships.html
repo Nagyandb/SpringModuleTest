@@ -8,6 +8,9 @@
 </head>
 
 <body>
+
+<h1> Az összes űrhajó: </h1>
+
 <div>
     <table>
         <tr>
@@ -23,7 +26,17 @@
             <td th:text="${datas.isActive}">Is Activce?</td>
         </tr>
     </table>
+
+
 </div>
+
+<br>
+<br>
+
+<div>
+    <a data-th-href="@{/searchresult}">Itt található valamennyi aktív űrhajó!</a>
+</div>
+
 </body>
 
 </html>
