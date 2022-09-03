@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -47,8 +49,8 @@ public class SpaceShipController {
         return "searchresult";
     }
 
-    @GetMapping(value = {"/showcrew"})
-    public String allCrewDates(Model model) {
+    @GetMapping(value = {"/showcrew/{id}"})
+    public String allCrewDates(@PathVariable Long registrationCode,Model model) {
         List<Crew> crewList = crewRepo.findCrewBy();
         model.addAttribute("allcrewdata", crewList);
         return "crewdata";
